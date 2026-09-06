@@ -3,9 +3,9 @@ id = "POR-0209"
 title = "Disgust disappears while other emotions remain recognizable"
 account_type = "journal-case"
 subject = "B.W."
-source_title = "Selective loss of disgust perception following brain injury"
-source_url = "https://www.nature.com/articles/389497a0"
-source_date = "1997"
+source_title = "Impaired recognition and experience of disgust following brain injury"
+source_url = "https://pubmed.ncbi.nlm.nih.gov/11036262/"
+source_date = "2000"
 accessed = "2026-09-05"
 domains = ["emotion", "interoception", "face-processing", "affective-valuation"]
 phenomena = ["content-specific-dissociation"]
@@ -24,4 +24,4 @@ This report constrains the catalog's taxonomy by separating capacities that ordi
 
 ## Original source
 
-[Selective loss of disgust perception following brain injury](https://www.nature.com/articles/389497a0)
+[Impaired recognition and experience of disgust following brain injury](https://pubmed.ncbi.nlm.nih.gov/11036262/)

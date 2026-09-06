@@ -62,3 +62,15 @@ Entries use these sections where the source supports them:
 - Record deleted usernames as `anonymous (deleted account)`.
 - When an image is added, include `assets/POR-####/PROVENANCE.md`.
 
+## Research workflow
+
+Record candidate sources, including rejected and temporarily blocked candidates, in [`research/source-ledger.tsv`](research/source-ledger.tsv) as soon as they are found. The detailed [source workflow](research/SOURCE_WORKFLOW.md) defines statuses, deduplication keys, coverage-led discovery, and citation chaining. This makes prior searches reusable instead of forcing each expansion to rediscover and discard the same material.
+
+Before committing, validate structure and only the links changed relative to the current commit:
+
+```powershell
+python scripts/validate_catalog.py
+python scripts/validate_new_links.py
+```
+
+After committing and before pushing, use `--base-ref origin/main` so the link checker tests URLs introduced by the outgoing commit.

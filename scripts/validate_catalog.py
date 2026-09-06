@@ -16,6 +16,7 @@ REQUIRED = {
 ID_RE = re.compile(r"POR-\d{4}$")
 EXPECTED_COUNT = 223
 EXPECTED_IDS = {f"POR-{number:04d}" for number in range(1, EXPECTED_COUNT + 1)}
+SECOND_EXPANSION_IDS = {f"POR-{number:04d}" for number in range(124, 224)}
 MAJOR_DOMAIN_GROUPS = {
     "perception": {"visual-perception", "auditory-perception", "color-perception", "motion-perception"},
     "imagery": {"visual-imagery", "auditory-imagery", "imagery", "orthographic-imagery"},
@@ -30,6 +31,12 @@ MAJOR_DOMAIN_GROUPS = {
     "chemical-senses": {"smell", "taste"},
     "mathematics": {"math"},
     "scene-representation": {"scene-representation"},
+}
+SECOND_EXPANSION_FOCUS_MINIMUMS = {
+    "math": 10,
+    "spatial-cognition": 20,
+    "navigation": 8,
+    "scene-representation": 15,
 }
 
 
@@ -66,8 +73,16 @@ def main() -> int:
         parsed = urlparse(str(meta.get("source_url", "")))
         if parsed.scheme not in {"http", "https"} or not parsed.netloc:
             errors.append(f"{path.relative_to(ROOT)}: invalid original source URL")
+        entry_text = path.read_text(encoding="utf-8")
+        if entry_id in SECOND_EXPANSION_IDS and f"]({meta.get('source_url', '')})" not in entry_text:
+            errors.append(f"{path.relative_to(ROOT)}: original-source link differs from metadata")
         if entry_id and entry_id not in index:
             errors.append(f"{path.relative_to(ROOT)}: not listed in catalog/README.md")
+        expected_index_link = path.relative_to(CATALOG).as_posix()
+        if f"]({expected_index_link})" not in index:
+            errors.append(
+                f"{path.relative_to(ROOT)}: exact file link missing from catalog/README.md"
+            )
         for image in meta.get("images", []):
             image_path = (ROOT / image).resolve()
             if ROOT not in image_path.parents or not image_path.is_file():
@@ -90,6 +105,29 @@ def main() -> int:
     for group, alternatives in MAJOR_DOMAIN_GROUPS.items():
         if not all_domains.intersection(alternatives):
             errors.append(f"major domain group has no entries: {group}")
+
+    expansion_domains: list[str] = []
+    expansion_ids = actual_ids.intersection(SECOND_EXPANSION_IDS)
+    if expansion_ids != SECOND_EXPANSION_IDS:
+        errors.append(
+            f"second expansion must contain exactly POR-0124 through POR-0223; "
+            f"found {len(expansion_ids)} entries"
+        )
+    for entry_id in expansion_ids:
+        try:
+            expansion_domains.extend(load_entry(ids[entry_id]).get("domains", []))
+        except Exception:
+            pass
+    expansion_domain_set = set(expansion_domains)
+    for group, alternatives in MAJOR_DOMAIN_GROUPS.items():
+        if not expansion_domain_set.intersection(alternatives):
+            errors.append(f"second expansion has no entries in major domain group: {group}")
+    for domain, minimum in SECOND_EXPANSION_FOCUS_MINIMUMS.items():
+        actual = expansion_domains.count(domain)
+        if actual < minimum:
+            errors.append(
+                f"second expansion needs at least {minimum} {domain!r} reports; found {actual}"
+            )
 
     print(f"Validated {len(files)} catalog entries.")
     if errors:

@@ -3,9 +3,9 @@ id = "POR-0129"
 title = "Approximate answers remain when simple exact calculation fails"
 account_type = "journal-case"
 subject = "N.A.U."
-source_title = "Towards an anatomical and functional model of number processing"
-source_url = "https://doi.org/10.1016/0028-3932(94)00120-3"
-source_date = "1995"
+source_title = "Two mental calculation systems: A case study of severe acalculia with preserved approximation"
+source_url = "https://doi.org/10.1016/0028-3932(91)90076-K"
+source_date = "1991"
 accessed = "2026-09-05"
 domains = ["conceptual-thought", "math", "metacognition"]
 phenomena = ["exact-approximate-dissociation"]
@@ -24,4 +24,4 @@ This report constrains the catalog's taxonomy by separating capacities that ordi
 
 ## Original source
 
-[Towards an anatomical and functional model of number processing](https://doi.org/10.1016/0028-3932(94)00120-3)
+[Two mental calculation systems: A case study of severe acalculia with preserved approximation](https://doi.org/10.1016/0028-3932(91)90076-K)

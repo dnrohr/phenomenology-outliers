@@ -28,7 +28,11 @@ taxonomy/
 assets/
   POR-####/           source-associated images and provenance notes
 scripts/
-  validate_catalog.py structural and link validation
+  validate_catalog.py structural and catalog validation
+  validate_new_links.py network-check only new or changed source URLs
+research/
+  SOURCE_WORKFLOW.md source discovery, retention, and deduplication strategy
+  source-ledger.tsv durable record of found, used, and rejected sources
 METHOD.md             inclusion rules, source policy, and entry template
 ```
 
@@ -38,6 +42,15 @@ The account type is used for filesystem stability. Phenomenological categories a
 
 ```powershell
 python scripts/validate_catalog.py
+python scripts/validate_new_links.py
 ```
 
-The validator checks IDs, required metadata, original-source links, local image references, and index coverage.
+The catalog validator checks IDs, required metadata, original-source links, local image references, index coverage, and expansion coverage. The network checker compares the working tree with `HEAD`, assumes unchanged links are already trusted, and requests only new or changed URLs.
+
+After committing but before pushing, compare the commit with the remote branch:
+
+```powershell
+python scripts/validate_new_links.py --base-ref origin/main
+```
+
+Publisher responses `401`, `403`, and `429` are reported as `BLOCKED` without failing by default because they commonly reject automated requests. Use `--strict-blocked` when every URL must produce a successful automated response.

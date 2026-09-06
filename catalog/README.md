@@ -228,8 +228,8 @@ This tranche adds exactly 100 further participant- or patient-specific reports, 
 | POR-0186 | [Inner speech reports vanish while rhyme judgments partly survive](journal-cases/POR-0186-inner-speech-after-aphasia.md) | inner-speech, language, metacognition, reading |
 | POR-0187 | [Fluent melody and prosody carry almost no propositional speech](journal-cases/POR-0187-speech-melody-without-proposition.md) | speech, music, language, agency |
 | POR-0188 | [Notes have names while melodic intervals remain effortful](journal-cases/POR-0188-absolute-pitch-without-relative-pitch.md) | auditory-perception, music, language, metacognition |
-| POR-0189 | [Real-world events return as fragments without their original order](journal-cases/POR-0189-episodic-absence-kc.md) | autobiographical-memory, self, time, visual-imagery |
-| POR-0190 | [Spatial and nonspatial details fade together after a real walk](journal-cases/POR-0190-familiarity-without-recollection-rb.md) | memory, metacognition, time |
+| POR-0189 | [Real-world events return as fragments without their original order](journal-cases/POR-0189-real-world-event-order.md) | autobiographical-memory, self, time, visual-imagery |
+| POR-0190 | [Spatial and nonspatial details fade together after a real walk](journal-cases/POR-0190-spatial-nonspatial-walk-memory.md) | memory, metacognition, time |
 | POR-0191 | [Recent experiences remain vivid while word and world knowledge erode](journal-cases/POR-0191-semantic-loss-recent-episodes.md) | memory, language, self, time |
 | POR-0192 | [Skills and new learning survive loss of personal past](journal-cases/POR-0192-psychogenic-identity-gap.md) | autobiographical-memory, self, agency, memory |
 | POR-0193 | [Learning looks normal until days later](journal-cases/POR-0193-accelerated-long-term-forgetting.md) | memory, time, metacognition |
@@ -259,7 +259,7 @@ This tranche adds exactly 100 further participant- or patient-specific reports, 
 | POR-0217 | [Visual dreams vanish while waking vision recovers](journal-cases/POR-0217-dream-loss-charcot-wilbrand.md) | dreaming, visual-imagery, sleep, memory |
 | POR-0218 | [Sour disappears while sweet, bitter, and salty tastes remain](journal-cases/POR-0218-sour-ageusia-one.md) | taste, interoception, metacognition |
 | POR-0219 | [Dream insight becomes frequent and controllable](journal-cases/POR-0219-lucid-dream-narcolepsy.md) | dreaming, sleep, metacognition, agency |
-| POR-0220 | [Sour taste is absent on an otherwise normal taste palette](journal-cases/POR-0220-hypnagogic-geometric-scenes.md) | taste, interoception, metacognition |
+| POR-0220 | [Sour taste is absent on an otherwise normal taste palette](journal-cases/POR-0220-sour-ageusia-two.md) | taste, interoception, metacognition |
 | POR-0221 | [Reasoning continues after the inner voice becomes unavailable](journal-cases/POR-0221-thought-without-inner-speech-aphasia.md) | conceptual-thought, inner-speech, language, math |
 | POR-0222 | [Relations and rotations remain clear without object pictures](journal-cases/POR-0222-spatial-imagery-without-object-imagery.md) | spatial-cognition, visual-imagery, scene-representation, conceptual-thought |
 | POR-0223 | [Vivid objects appear without a stable surrounding layout](journal-cases/POR-0223-object-imagery-without-spatial-map.md) | visual-imagery, spatial-cognition, scene-representation, navigation |
@@ -271,6 +271,6 @@ The registry now contains **223 reports**: the original 23 plus two expansions o
 - exact versus approximate arithmetic, operation-specific acalculia, embodied counting, calendar calculation, and numerical semantics;
 - cognitive maps, landmark identity, heading, route learning, egocentric action coordinates, hemispatial neglect, and subjective vertical;
 - coherent and fragmented scene construction, beyond-the-frame scene extension, simultanagnosia, and object-versus-spatial imagery;
-- face distortion, music and voice recognition, inner speech, episodic and semantic memory, body ownership, pain affect, interoception, dreaming, and hypnagogia.
+- face distortion, music and voice recognition, inner speech, episodic and semantic memory, body ownership, pain affect, interoception, dreaming, smell, and taste.
 
 Across the full corpus, tags remain overlapping dimensions rather than mutually exclusive diagnoses or prevalence estimates.
